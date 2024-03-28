@@ -26,21 +26,11 @@
    sudo apt install clangd-10
    ```
 
-3. 在 clangd 扩展的**远程**设置中修改 Clangd:Path 为 /usr/bin/clangd
+3. 在 clangd 扩展的**远程**设置中修改 Clangd:Path 为 /usr/bin/clangd-10
 
-   （如果没有 /usr/bin/clangd，则进行软链接）
+   （如果安装时没有指定 clangd 版本，则设置为 /usr/bin/clangd 即可）
 
-   ```
-   sudo ln -s /usr/bin/clangd-10 /usr/bin/clangd
-   ```
-
-4. 使用 bear 生成编译数据库 compile_commands.json
-
-   ```
-   sudo apt install bear
-   bear ./build.sh (低版本bear)
-   bear -- ./build.sh (高版本bear)
-   ```
+4. 使用 ./build.sh 编译生成 compile_commands.json 文件
 
 5. 重启 clangd 插件即可
 
