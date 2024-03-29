@@ -1,36 +1,8 @@
-# CNDrv 开发环境配置
+# CNDrv 测试项目
 
-1. 安装 CNToolkit
+api：CNDrv API 测试，主要是 cn_api.h 里面的接口。
 
-2. 按照实际安装路径设置 NEUWARE_HOME 环境变量（可以写入到 ~/.bashrc 中永久生效）
+bw：仿照 bw_sample 进行更底层的控制
 
-   ```
-   export NEUWARE_HOME=/usr/local/neuware
-   ```
-
-3. 编译
-
-   ```
-   ./build.sh
-   ```
-
-## vscode扩展配置（clangd）
-
-1. 安装 vscode 扩展 clangd
-
-2. 安装 clang，先查询软件包中的 clangd 版本
-
-   ```
-   sudo apt update
-   sudo apt search clangd
-   sudo apt install clangd-10
-   ```
-
-3. 在 clangd 扩展的**远程**设置中修改 Clangd:Path 为 /usr/bin/clangd-10
-
-   （如果安装时没有指定 clangd 版本，则设置为 /usr/bin/clangd 即可）
-
-4. 使用 ./build.sh 编译生成 compile_commands.json 文件
-
-5. 重启 clangd 插件即可
+common：提供一些与设备无关的常用函数，比如函数用时计算
 
