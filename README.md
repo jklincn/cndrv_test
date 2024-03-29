@@ -32,7 +32,7 @@
 
 4. 使用 ./build.sh 编译生成 compile_commands.json 文件
 
-5. 重启 clangd 插件
+5. 在 vscode 命令面板重启 clangd 插件
 
    ```
    > clangd: Restart language server
