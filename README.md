@@ -18,7 +18,7 @@
 
 1. 安装 vscode 扩展 clangd
 
-2. 安装 clang，先查询软件包中的 clangd 版本
+2. 安装 clang（可以先查询软件包中的 clangd 版本，因为默认版本可能较低）
 
    ```
    sudo apt update
@@ -28,9 +28,13 @@
 
 3. 在 clangd 扩展的**远程**设置中修改 Clangd:Path 为 /usr/bin/clangd-10
 
-   （如果安装时没有指定 clangd 版本，则设置为 /usr/bin/clangd 即可）
+   （如果安装时没有指定 clangd 版本，即安装的是默认版本，则设置为 /usr/bin/clangd 即可）
 
 4. 使用 ./build.sh 编译生成 compile_commands.json 文件
 
-5. 重启 clangd 插件即可
+5. 重启 clangd 插件
+
+   ```
+   > clangd: Restart language server
+   ```
 
