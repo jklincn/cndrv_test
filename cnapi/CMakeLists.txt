@@ -1,4 +1,4 @@
-add_executable(test test.c)
+add_executable(cnapi_test test.c)
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -pthread")
 
@@ -9,5 +9,5 @@ if(NOT CNDRV_LIBRARY)
     message(FATAL_ERROR "cndrv library not found")
 endif()
 
-target_link_libraries(test ${CNDRV_LIBRARY})
-target_link_libraries(test common_lib)
+target_link_libraries(cnapi_test ${CNDRV_LIBRARY})
+target_link_libraries(cnapi_test common_lib)
