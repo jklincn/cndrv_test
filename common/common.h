@@ -4,12 +4,16 @@
 #include <time.h>
 
 void time_start();
-void time_end();
+double time_end_sec();
+double time_end_msec();
+long time_end_usec();
+long long time_end_nsec();
 
-#define TIME_CALC(func) do { \
-    time_start();                  \
-    func;                    \
-    time_end();                    \
-} while(0)
+#define TIME_CALC(func)  \
+    do {                 \
+        time_start();    \
+        func;            \
+        time_end_nsec(); \
+    } while (0)
 
-#endif // COMMON_H
+#endif  // COMMON_H

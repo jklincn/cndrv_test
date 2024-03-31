@@ -1,7 +1,5 @@
 add_executable(cnapi_test test.c)
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -pthread")
-
 include_directories($ENV{NEUWARE_HOME}/include)
 
 find_library(CNDRV_LIBRARY NAMES cndrv PATHS $ENV{NEUWARE_HOME}/lib64 NO_DEFAULT_PATH)
