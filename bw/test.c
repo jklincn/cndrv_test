@@ -1,22 +1,24 @@
 #include "test.h"
 
-#define CARDNUM 8
 #define DEFAULT_SIZE 0x40000000L  // 1GB
 #define REPEAT_TIMES 10
 
 int main(int argc, char **argv) {
-    int ret, pin_fd;
+    int ret, pin_fd, *dev_fd;
     // 打开控制节点
     pin_fd = open("/dev/cambricon_ctl", O_RDWR | O_TRUNC | O_SYNC, 0666);
+
     // 获取卡的数量
     struct cndev_cardnum param;
     ioctl(pin_fd, MONITOR_CNDEV_CARDNUM, &param);
-    assert(param.card_count == CARDNUM);
 
-    int dev_fd[CARDNUM];
+    uint8_t card_count = param.card_count;
+
+    dev_fd = malloc(card_count * sizeof(int));
+
     char tmp_str[100];
-    for (int i = 0; i < CARDNUM; i++) {
-        // 打开 8 个设备节点
+    for (int i = 0; i < card_count; i++) {
+        // 打开设备节点
         sprintf(tmp_str, "/dev/cambricon_dev%d", i);
         dev_fd[i] = open(tmp_str, O_RDWR | O_CREAT | O_TRUNC | O_SYNC, 0666);
         assert(dev_fd[i] > 0);

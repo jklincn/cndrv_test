@@ -6,5 +6,5 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_subdirectory(common)
 # add_subdirectory(bw_sample)
-add_subdirectory(cnapi)
+# add_subdirectory(cnapi)
 add_subdirectory(bw)
